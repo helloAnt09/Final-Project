@@ -94,11 +94,11 @@
         audio.play();
     }
 
-    // click
+    
     keys.forEach(key => {key.onclick = () => play(key.dataset.key);
     });
 
-    // keyboard
+    
     document.onkeydown = (e) => {
     play(e.key.toLowerCase());
     };
