@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Piano</title>
+    <a href="Rhodes.html">Electric Piano</a>
+    <style>
+    body{
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        background: linear-gradient(to right, #549bf7, #f0f9ff);
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+    }   
+        .piano_container{
+            display: flex;
+            width: max-content;
+            background-color: black ;
+            border-color: black;
+            border-radius: 10px;
+        }
+        .keys{
+            display: flex;
+            color: grey;
+            position: relative;
+            text-transform: uppercase;
+            
+            
+        
+        }
+        
+        .black_key{
+            width: 40px;
+            height: 140px;
+            z-index: 2;
+            margin: 0 -22px 0 -22px;
+            border-radius: 10px;
+            border: 1px solid blue;
+            background-color:rgb(0, 0, 0);
+        }
+        .black_key:active{
+            background-color:rgb(45, 45, 45)
+        }
+        .keys
+        .white_key{
+            width: 70px;
+            z-index: 1;
+            height: 230px;
+            border-radius: 10px;
+            border: 1px solid blue;
+            background-color:white;
+        }
+        .white_key:active{
+            background-color: rgb(217, 216, 216);
+        }
+        .keys span{
+            position:absolute;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>My Awesome Piano</h2>
+    <div class="piano_container">
+        <div class="keys"> 
+            <li class="white_key" data-key="a"> <span>a</span> </li>
+            <li class="black_key" data-key="w"><span>w</span> </li>
+            <li class="white_key" data-key="s"><span>s</span> </li>
+            <li class="white_key" data-key="d"><span>d</span> </li>
+            <li class="black_key" data-key="r"><span>r</span> </li>
+            <li class="white_key" data-key="f"><span>f</span> </li>
+            <li class="black_key" data-key="t"><span>t</span> </li>
+            <li class="white_key" data-key="g"><span>g</span> </li>
+            <li class="white_key" data-key="h"> <span>h</span></li>
+            <li class="black_key" data-key="u"> <span>u</span></li>
+            <li class="white_key" data-key="j"><span>j</span> </li>
+            <li class="black_key" data-key="i"><span>i</span> </li>
+            <li class="white_key" data-key="k"><span>k</span> </li>
+            <li class="black_key" data-key="o"> <span>o</span></li>
+            <li class="white_key" data-key="l"> <span>l</span></li>
+            <li class="white_key" data-key=";"><span>;</span> </li>
+        </div>
+    </div>
+   
+   <script>
+       
+    const keys = document.querySelectorAll(".keys li");
+
+    function play(note) {
+        audio = new Audio(`audio/${note}.wav`);
+        audio.play();
+    }
+
+    // click
+    keys.forEach(key => {key.onclick = () => play(key.dataset.key);
+    });
+
+    // keyboard
+    document.onkeydown = (e) => {
+    play(e.key.toLowerCase());
+    };
+
+    </script>
+</body>
+</html>
